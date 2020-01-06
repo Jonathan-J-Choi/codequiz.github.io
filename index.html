@@ -1,56 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="icon" type="image/png" href="assets/quiz.png">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" />
   <title>Quiz Time!</title>
 </head>
 
 <body>
+
+  <!-- Jumbotron Quiz Area -->
   <div id="container" class="container">
     <div class="jumbotron text-center bg-light">
       <h1 class="display-4">Ready for a Quiz?</h1>
       <hr class="my-4">
       <a class="btn btn-info btn-lg" href="#" role="button" id="start">Start the Quiz!</a>
-      
+
+      <!-- Quiz Questions -->
       <div id="quiz" style="display:none">
-      <div id="question"></div>
-      <div id="choices">
-        <div class="choice btn btn-info btn-lg" id="A" onclick="checkAnswer('A')">A</div>
-        <div class="choice btn btn-info btn-lg" id="B" onclick="checkAnswer('B')">B</div>
-        <div class="choice btn btn-info btn-lg" id="C" onclick="checkAnswer('C')">C</div>
-        <div class="choice btn btn-info btn-lg" id="D" onclick="checkAnswer('D')">D</div>
-      </div>
-      <div id="timer" >
+        <div id="question"></div>
+        <div id="choices">
+          <div class="choice btn btn-info btn-lg" id="A" onclick="checkAnswer('A')">A</div>
+          <div class="choice btn btn-info btn-lg" id="B" onclick="checkAnswer('B')">B</div>
+          <div class="choice btn btn-info btn-lg" id="C" onclick="checkAnswer('C')">C</div>
+          <div class="choice btn btn-info btn-lg" id="D" onclick="checkAnswer('D')">D</div>
+        </div>
+
+        <!-- Timer -->
+        <div id="timer">
+          <br>
+          <div id="counter">
+            0
+          </div>
+        </div>
+
+        <!-- Wrong Answer Div -->
         <br>
-        <div id="counter">
-          0
+        <div id="wrong">
+        </div>
+
+      </div>
+      <!-- Percentile Score Container -->
+      <div id="scoreContainer" style="display:none">
+        <div class="container"></div>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body text-center" id="card">
+          </div>
         </div>
       </div>
-        <div id="wrong"></div>
-    </div>  
-    
-  </div>
-    
-  <div id="scoreContainer" style="display:none">
-    <div class="card" style="width: 18rem;">
-      <div class = "container-fluid">
-        <div class="card-body" id="card">
-          <!-- <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a> -->
-        </div>
-      </div>  
     </div>
+
   </div>
-  
+
   <script src="script.js"></script>
   <script src="./questions.js"></script>
 </body>
+
 </html>

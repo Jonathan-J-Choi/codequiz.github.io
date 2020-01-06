@@ -93,7 +93,6 @@ function renderCounter(){
     count++;
   }else{
     count=0;
-    answerIsWrong();
     if( runningQuestion < lastQuestion){
       runningQuestion++;
       renderQuestion();
@@ -124,7 +123,8 @@ function checkAnswer(answer){
 
 // Score
 function scoreRender(){
-  scoreContainer.style.display="inline";
+  scoreContainer.style.display="inline-block";
   var scorePerCent = Math.round(100*score/questions.length);
-  card.innerHTML= "<p>Congratulations! You got " +scorePerCent + "% correct!</p>";
+  card.innerHTML= "<p>Congratulations!</p> <p>You got " +scorePerCent + "% correct!</p>";
 }
+
