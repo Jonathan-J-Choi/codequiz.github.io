@@ -1,4 +1,3 @@
-
 // DOM ELEMENTS
 var start = document.getElementById("start");
 var quiz = document.getElementById("quiz");
@@ -127,4 +126,3 @@ function scoreRender(){
   var scorePerCent = Math.round(100*score/questions.length);
   card.innerHTML= "<p>Congratulations!</p> <p>You got " +scorePerCent + "% correct!</p>";
 }
-
