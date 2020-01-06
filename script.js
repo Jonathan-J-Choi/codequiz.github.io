@@ -4,7 +4,6 @@ var start = document.getElementById("start");
 var quiz = document.getElementById("quiz");
 var question = document.getElementById("question");
 var counter = document.getElementById("counter")
-var timeGauge = document.getElementById("timeGauge");
 var score = document.getElementById("scoreContainer");
 
 // Answer Choices
@@ -83,15 +82,12 @@ function renderQuestion(){
 // Rendering the Counter
 var count= 0;
 var questionTime = 15;
-var gaugeWidth = 150;
-var gaugeUnit = gaugeWidth/questionTime;
 var TIMER;
 var score = 0;
 
 function renderCounter(){
   if ( count <= questionTime){
     counter.innerHTML = count;
-    timeGauge.style.width= count* gaugeUnit + "px";
     count++;
   }else{
     count=15;
