@@ -5,6 +5,8 @@ var quiz = document.getElementById("quiz");
 var question = document.getElementById("question");
 var counter = document.getElementById("counter")
 var score = document.getElementById("scoreContainer");
+var wrong = document.getElementById("wrong");
+var card = document.getElementById("card");
 
 // Answer Choices
 var choiceA = document.getElementById("A");
@@ -26,7 +28,7 @@ function startQuiz(){
 var questions = [
   {
     question: "JavaScript's is also referred to as ____.",
-    choiceA: "Java",
+    choiceA: "CoffeeScript",
     choiceB: "HTML",
     choiceC: "ECMA Script",
     choiceD: "C++",
@@ -44,21 +46,21 @@ var questions = [
     question: "Commonly used data types DO NOT include:",
     choiceA: "Strings",
     choiceB: "Booleans",
-    choiceC: "Alerts",
+    choiceC: "Farts",
     choiceD: "Numbers",
     correct: "C"
   },
   {
     question: "The condition in an if / else statement is enclosed within ____.",
     choiceA: "Quotes",
-    choiceB: "Curly Braces",
+    choiceB: "A wall across the entire border of Mexico",
     choiceC: "Parentheses",
     choiceD: "Square Brackets",
     correct: "C"
   },
   {
     question: "Variables are the English equivalent of what in JavaScript?",
-    choiceA: "Adjectives",
+    choiceA: "Cups of Tea",
     choiceB: "Predicates",
     choiceC: "Nouns",
     choiceD: "Verbs",
@@ -91,6 +93,7 @@ function renderCounter(){
     count++;
   }else{
     count=0;
+    answerIsWrong();
     if( runningQuestion < lastQuestion){
       runningQuestion++;
       renderQuestion();
@@ -99,11 +102,13 @@ function renderCounter(){
     }
   }
 
-
 // Checking the Answer
 function checkAnswer(answer){
   if (answer == questions [runningQuestion].correct){
     score++
+  }
+  if (answer !== questions [runningQuestion].correct){
+    wrong.textContent= "You got the last one wrong!"
   }
   if (runningQuestion < lastQuestion){
     count = 0;
@@ -111,6 +116,7 @@ function checkAnswer(answer){
     renderQuestion();
   }
   else{
+    wrong.style.display="none";
     clearInterval(TIMER);
     scoreRender();
   }
@@ -118,7 +124,7 @@ function checkAnswer(answer){
 
 // Score
 function scoreRender(){
-  scoreContainer.style.display="block";
+  scoreContainer.style.display="inline";
   var scorePerCent = Math.round(100*score/questions.length);
-  ServiceWorkerContainer.innerHTML= "><p>" +scorePerCent + "%</p>";
+  card.innerHTML= "<p>Congratulations! You got " +scorePerCent + "% correct!</p>";
 }
