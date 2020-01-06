@@ -90,8 +90,7 @@ function renderCounter(){
     counter.innerHTML = count;
     count++;
   }else{
-    count=15;
-    answerIsWrong();
+    count=0;
     if( runningQuestion < lastQuestion){
       runningQuestion++;
       renderQuestion();
@@ -99,6 +98,7 @@ function renderCounter(){
       scoreRender() }
     }
   }
+
 
 // Checking the Answer
 function checkAnswer(answer){
