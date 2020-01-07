@@ -6,6 +6,8 @@ var counter = document.getElementById("counter")
 var score = document.getElementById("scoreContainer");
 var wrong = document.getElementById("wrong");
 var card = document.getElementById("card");
+var highScoreBox = document.getElementById("highScoreBox")
+var highScore = document.getElementById("highScore")
 
 // Answer Choices
 var choiceA = document.getElementById("A");
@@ -21,6 +23,11 @@ function startQuiz(){
   quiz.style.display="block";
   renderCounter();
   TIMER = setInterval(renderCounter,1000);
+}
+
+// Hiding the Quiz
+function quizHide(){
+  quiz.style.display="none";
 }
 
 // Questions
@@ -96,7 +103,7 @@ function renderCounter(){
       runningQuestion++;
       renderQuestion();
     }else{ clearInterval(TIMER);
-      scoreRender() }
+      scoreRender();}
     }
   }
 
@@ -117,6 +124,8 @@ function checkAnswer(answer){
     wrong.style.display="none";
     clearInterval(TIMER);
     scoreRender();
+    highScoreRender();
+    quizHide();
   }
 }
 
@@ -127,3 +136,8 @@ function scoreRender(){
   card.innerHTML= "<p>Congratulations!</p> <p>You got " +scorePerCent + "% correct!</p>";
 }
 
+// Highscore box
+function highScoreRender(){
+  highScoreBox.style.display="inline-block";
+
+}
