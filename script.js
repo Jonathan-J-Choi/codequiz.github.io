@@ -126,3 +126,4 @@ function scoreRender(){
   var scorePerCent = Math.round(100*score/questions.length);
   card.innerHTML= "<p>Congratulations!</p> <p>You got " +scorePerCent + "% correct!</p>";
 }
+
