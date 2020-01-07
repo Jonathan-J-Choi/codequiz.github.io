@@ -134,7 +134,7 @@ function checkAnswer(answer){
 function scoreRender(){
   scoreContainer.style.display="inline-block";
   var scorePerCent = Math.round(100*score/questions.length);
-  card.innerHTML= "<p>Congratulations!</p> <p>You got " +scorePerCent + "% correct!</p>";
+  card.innerHTML= "<p>Congratulations!</p> <p>You got " +scorePerCent + "% correct!</p><br><br>";
 }
 
 // Highscore box
@@ -142,6 +142,7 @@ function highScoreRender(){
   highScoreBox.style.display="inline-block";
 }
 
+// javascript sort array?
 // Highscore submit
 highScore.addEventListener("click", function(){
   var userIn = userInitial.value;
