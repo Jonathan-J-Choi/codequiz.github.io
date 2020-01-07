@@ -1,7 +1,7 @@
 var questions = [
   {
     question: "JavaScript's is also referred to as ____.",
-    choiceA: "Java",
+    choiceA: "CoffeeScript",
     choiceB: "HTML",
     choiceC: "ECMA Script",
     choiceD: "C++",
@@ -19,21 +19,21 @@ var questions = [
     question: "Commonly used data types DO NOT include:",
     choiceA: "Strings",
     choiceB: "Booleans",
-    choiceC: "Alerts",
+    choiceC: "Farts",
     choiceD: "Numbers",
     correct: "C"
   },
   {
     question: "The condition in an if / else statement is enclosed within ____.",
     choiceA: "Quotes",
-    choiceB: "Curly Braces",
+    choiceB: "A wall across the entire border of Mexico",
     choiceC: "Parentheses",
     choiceD: "Square Brackets",
     correct: "C"
   },
   {
     question: "Variables are the English equivalent of what in JavaScript?",
-    choiceA: "Adjectives",
+    choiceA: "Cups of Tea",
     choiceB: "Predicates",
     choiceC: "Nouns",
     choiceD: "Verbs",

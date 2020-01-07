@@ -8,6 +8,7 @@ var wrong = document.getElementById("wrong");
 var card = document.getElementById("card");
 var highScoreBox = document.getElementById("highScoreBox")
 var highScore = document.getElementById("highScore")
+var userInitial = document.getElementById("userInitial")
 
 // Answer Choices
 var choiceA = document.getElementById("A");
@@ -139,5 +140,11 @@ function scoreRender(){
 // Highscore box
 function highScoreRender(){
   highScoreBox.style.display="inline-block";
-
 }
+
+// Highscore submit
+highScore.addEventListener("click", function(){
+  var userIn = userInitial.value;
+  console.log(userIn);
+  localStorage.setItem(userIn, score );
+});
