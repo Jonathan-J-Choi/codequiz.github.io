@@ -31,50 +31,6 @@ function quizHide(){
   quiz.style.display="none";
 }
 
-// Questions
-var questions = [
-  {
-    question: "JavaScript's is also referred to as ____.",
-    choiceA: "CoffeeScript",
-    choiceB: "HTML",
-    choiceC: "ECMA Script",
-    choiceD: "C++",
-    correct: "C"
-  },
-  {
-    question: "JavaScript MAINLY deals with the ____ of a website.",
-    choiceA: "Links",
-    choiceB: "Appearance",
-    choiceC: "Interactivity",
-    choiceD: "Smell",
-    correct: "C"
-  },
-  {
-    question: "Commonly used data types DO NOT include:",
-    choiceA: "Strings",
-    choiceB: "Booleans",
-    choiceC: "Farts",
-    choiceD: "Numbers",
-    correct: "C"
-  },
-  {
-    question: "The condition in an if / else statement is enclosed within ____.",
-    choiceA: "Quotes",
-    choiceB: "A wall across the entire border of Mexico",
-    choiceC: "Parentheses",
-    choiceD: "Square Brackets",
-    correct: "C"
-  },
-  {
-    question: "Variables are the English equivalent of what in JavaScript?",
-    choiceA: "Cups of Tea",
-    choiceB: "Predicates",
-    choiceC: "Nouns",
-    choiceD: "Verbs",
-    correct: "C"
-  },
-];
-
 // Rendering the Questions
 var lastQuestion = questions.length -1;
 var runningQuestion = 0;
@@ -105,6 +61,8 @@ function renderCounter(){
       renderQuestion();
     }else{ clearInterval(TIMER);
       scoreRender();}
+      highScoreRender();
+      quizHide();
     }
   }
 
@@ -143,9 +101,18 @@ function highScoreRender(){
 }
 
 // javascript sort array?
+
 // Highscore submit
 highScore.addEventListener("click", function(){
+
   var userIn = userInitial.value;
-  console.log(userIn);
-  localStorage.setItem(userIn, score );
+  // localStorage.setItem(userIn, score);
+  var highScores = JSON.parse(window.localStorage.getItem("highScore")) || [];
+  console.log(highScores)
+  var newScore = {
+    score:score,
+    initials:userIn
+  }
+  // highScores.push(newScore);
+  window.localStorage.setItem("highScore", JSON.stringify(newScore));
 });

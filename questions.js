@@ -1,16 +1,16 @@
 var questions = [
   {
     question: "JavaScript's is also referred to as ____.",
-    choiceA: "CoffeeScript",
-    choiceB: "HTML",
+    choiceA: "Coffee Script",
+    choiceB: "News Script",
     choiceC: "ECMA Script",
-    choiceD: "C++",
+    choiceD: "Director's Script",
     correct: "C"
   },
   {
     question: "JavaScript MAINLY deals with the ____ of a website.",
-    choiceA: "Links",
-    choiceB: "Appearance",
+    choiceA: "Texture",
+    choiceB: "Flavor",
     choiceC: "Interactivity",
     choiceD: "Smell",
     correct: "C"
@@ -25,18 +25,18 @@ var questions = [
   },
   {
     question: "The condition in an if / else statement is enclosed within ____.",
-    choiceA: "Quotes",
-    choiceB: "A wall across the entire border of Mexico",
+    choiceA: "Flat Earther's ice walls",
+    choiceB: "Mexico Border Wall",
     choiceC: "Parentheses",
-    choiceD: "Square Brackets",
+    choiceD: "The Great Wall of China",
     correct: "C"
   },
   {
     question: "Variables are the English equivalent of what in JavaScript?",
-    choiceA: "Cups of Tea",
-    choiceB: "Predicates",
+    choiceA: "大屁",
+    choiceB: "おなら",
     choiceC: "Nouns",
-    choiceD: "Verbs",
+    choiceD: "작은 방귀",
     correct: "C"
   },
 ];
