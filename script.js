@@ -18,24 +18,24 @@ var choiceD = document.getElementById("D");
 
 // Start Quiz Button
 start.addEventListener("click", startQuiz);
-function startQuiz(){
+function startQuiz() {
   start.style.display = "none";
   renderQuestion();
-  quiz.style.display="block";
+  quiz.style.display = "block";
   renderCounter();
-  TIMER = setInterval(renderCounter,1000);
+  TIMER = setInterval(renderCounter, 1000);
 }
 
 // Hiding the Quiz
-function quizHide(){
-  quiz.style.display="none";
+function quizHide() {
+  quiz.style.display = "none";
 }
 
 // Rendering the Questions
-var lastQuestion = questions.length -1;
+var lastQuestion = questions.length - 1;
 var runningQuestion = 0;
 
-function renderQuestion(){
+function renderQuestion() {
   var q = questions[runningQuestion];
   question.innerHTML = "<p>" + q.question + "</p>";
   choiceA.innerHTML = q.choiceA;
@@ -44,43 +44,45 @@ function renderQuestion(){
   choiceD.innerHTML = q.choiceD;
 }
 
-// Rendering the Counter
-var count= 0;
+// Timer/Score
+var count = 0;
 var questionTime = 15;
 var TIMER;
 var score = 0;
 
-function renderCounter(){
-  if ( count <= questionTime){
+function renderCounter() {
+  if (count <= questionTime) {
     counter.innerHTML = count;
     count++;
-  }else{
-    count=0;
-    if( runningQuestion < lastQuestion){
+  } else {
+    count = 0;
+    if (runningQuestion < lastQuestion) {
       runningQuestion++;
       renderQuestion();
-    }else{ clearInterval(TIMER);
-      scoreRender();}
-      highScoreRender();
-      quizHide();
+    } else {
+      clearInterval(TIMER);
+      scoreRender();
     }
+    highScoreRender();
+    quizHide();
   }
+}
 
-// Checking the Answer
-function checkAnswer(answer){
-  if (answer == questions [runningQuestion].correct){
+// Right or Wrong Answer
+function checkAnswer(answer) {
+  if (answer == questions[runningQuestion].correct) {
     score++
   }
-  if (answer !== questions [runningQuestion].correct){
-    wrong.textContent= "You got the last one wrong!"
+  if (answer !== questions[runningQuestion].correct) {
+    wrong.textContent = "You got the last one wrong!"
   }
-  if (runningQuestion < lastQuestion){
+  if (runningQuestion < lastQuestion) {
     count = 0;
     runningQuestion++;
     renderQuestion();
   }
-  else{
-    wrong.style.display="none";
+  else {
+    wrong.style.display = "none";
     clearInterval(TIMER);
     scoreRender();
     highScoreRender();
@@ -89,30 +91,28 @@ function checkAnswer(answer){
 }
 
 // Score
-function scoreRender(){
-  scoreContainer.style.display="inline-block";
-  var scorePerCent = Math.round(100*score/questions.length);
-  card.innerHTML= "<p>Congratulations!</p> <p>You got " +scorePerCent + "% correct!</p><br><br>";
+function scoreRender() {
+  scoreContainer.style.display = "inline-block";
+  var scorePerCent = Math.round(100 * score / questions.length);
+  card.innerHTML = "<p>Congratulations!</p> <p>You got " + scorePerCent + "% correct!</p><br><br>";
 }
 
 // Highscore box
-function highScoreRender(){
-  highScoreBox.style.display="inline-block";
+function highScoreRender() {
+  highScoreBox.style.display = "inline-block";
 }
 
-// javascript sort array?
 
 // Highscore submit
-highScore.addEventListener("click", function(){
+highScore.addEventListener("click", function () {
 
   var userIn = userInitial.value;
-  // localStorage.setItem(userIn, score);
   var highScores = JSON.parse(window.localStorage.getItem("highScore")) || [];
   console.log(highScores)
   var newScore = {
-    score:score,
-    initials:userIn
+    score: score,
+    initials: userIn
   }
-  // highScores.push(newScore);
   window.localStorage.setItem("highScore", JSON.stringify(newScore));
+  window.open("highscores.html")
 });
